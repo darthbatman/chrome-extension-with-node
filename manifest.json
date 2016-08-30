@@ -1,0 +1,33 @@
+{
+  "manifest_version": 2,
+
+  "name": "chromeExtensionTest",
+  "description": "This is a test chrome extension.",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html",
+    "default_title": "Click here!"
+  },
+
+  "background": {
+    "scripts": ["popup.js"],
+    "persistent": false
+    },
+
+  "content_scripts": [
+    {
+      "matches": ["http://google.com/*"],
+      "js": ["popup.js"],
+      "run_at": "document_end"
+    }
+  ],
+
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "https://ajax.googleapis.com/",
+    "http://darthbatman.tk/*"
+  ]
+}
